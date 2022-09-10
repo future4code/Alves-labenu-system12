@@ -17,7 +17,7 @@ class TeacherData extends BaseDataBase {
 
 
     async insertTeacherSpecialty(teacher: Teacher) : Promise<void> {
-        // Falta acertar pegar esse ID direito !!
+
         const specialtyId = await this.getConnection()
         .select("id")
         .from("LS_SPECIALTY")
@@ -25,9 +25,23 @@ class TeacherData extends BaseDataBase {
 
         await this.getConnection()
         .insert({
+            id: Date.now().toString(),
             teacher_id: teacher.getId(),
-            specialty_id: specialtyId
-        })
+            specialty_id: specialtyId[0].id
+        }).into("LS_TEACHER_SPECIALTY")
+    }
+
+    async selectTeachers() {
+        const result = await this.getConnection().select("*").from("LS_TEACHER")
+
+        return result
+    }
+
+    async updateTeacherClass(id: string, classId: string) : Promise<void> {
+        await this.getConnection()
+        .update({class_id: classId})
+        .into("LS_TEACHER")
+        .where({ id })
     }
 
 }

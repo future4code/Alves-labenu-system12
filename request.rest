@@ -2,7 +2,7 @@ POST  http://localhost:3003/class
 Content-Type: application/json
 
 {
-    "name": "Teste zero",
+    "name": "Nenhuma turma",
     "unit": 0
 }
 
@@ -14,5 +14,31 @@ PUT http://localhost:3003/class/1
 Content-Type: application/json
 
 {
-    "unit": 5
+    "unit": 7
+}
+
+###
+
+POST http://localhost:3003/teacher
+Content-Type: application/json
+
+{
+    "name": "Armélia",
+    "email": "armelia@gmail.com",
+    "birth_date": "1978-05-02",
+    "specialty": "JS"
+}
+
+###
+
+GET http://localhost:3003/teacher
+
+
+###
+
+PUT http://localhost:3003/teacher/1662819013629
+Content-Type: application/json
+
+{
+    "class_id": "1"
 }
