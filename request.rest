@@ -42,3 +42,16 @@ Content-Type: application/json
 {
     "class_id": "1"
 }
+
+###
+
+POST http://localhost:3003/create-studant
+Content-Type: application/json
+
+{
+    "name":"Guilherme",
+    "email":"gui@gmail.com",
+    "birth_date":"1998-10-04",
+    "class_id ":"001"
+
+}
