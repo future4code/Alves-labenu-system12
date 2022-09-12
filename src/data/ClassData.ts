@@ -29,5 +29,14 @@ class ClassData extends BaseDataBase {
       })
       .into("LS_CLASS");
   }
+
+  async searchClassById(id:string){
+    const result = await this.getConnection()
+    .select("*").
+    from("LS_CLASS")
+    .where({id})
+    
+    return result
+  }
 }
 export default ClassData;
